@@ -13,6 +13,46 @@ A prototype (web app) of CoinTacker with 3 main core functionalities:
 - main.py: Utility functions for managing Bitcoin addresses and transactions.
 - test.py: Unit tests for database and API functionalities.
 
+## Assumptions and Architectural Decision:
+### Assumptions 
+- The user login data will not save after closing the user interface. Data needs to be input again. 
+- When the user `adds/removes` a a btc address it is asumed that authentication process is done in the backend. I.e. the user is able to verify that the btc address is theirs.
+
+### Architctural Decisions
+- Project is built using Python, AWS DynamoDB, Flask, and HTML.
+- A user interface is simply for the user to use, contains:
+    - Login/Register page
+    - Loggedin page:
+          - Can add/remove BTC addresses
+          - Can go to Balance Transactions for their BTC address
+          - Can go Retrieve Balances & Transanctions
+- DynamoDB databases: uses 3 tables
+    - UsersDB: data stored {username, password}
+      ```bash
+          Schema:
+          username (Partition Key) - String (S)
+          password - String (S)
+          encrypted_password - String (S)
+          time_registered - String (S) (ISO-formatted datetime)
+
+      ```
+    - BTCBalancesDB: data stored {btc_address, btc_balance, username, time_added}
+      ```bash
+          Schema:
+          btc_address (Partition Key) - String (S)
+          username - String (S)
+          time_added - String (S) (ISO-formatted datetime)
+          btc_balance - Number (N) (Decimal)
+      ```
+    - TransactionsDB: data stored {modified_btc_address, btc_address, time, balance, fee}
+      ```bash
+          Schema:
+          modified_btc_address (Partition Key) - String (S)
+          btc_address - String (S)
+          time - String (S) (Formatted datetime)
+          balance - Number (N) (Integer)
+          fee - Number (N) (Integer)
+      ```
 ## Installation
 
 
