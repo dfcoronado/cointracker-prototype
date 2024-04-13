@@ -18,7 +18,7 @@ A prototype (web app) of CoinTacker with 3 main core functionalities:
 
 Download repository to local machine:
 ```bash
-git clone <project_repository_url>
+git clone https://github.com/dfcoronado/cointracker-prototype/
 ```
 
 ## Setup Environment: AWS Account and Dependencies
