@@ -110,6 +110,13 @@ Run the following command in the project directory to run the application:
 python app.py
 ```
 
+## Tests
+You can run unit tests by running the following command in repository directory:
+
+```bash
+python tests.py
+```
+
 - The terminal should specify where the server is: ```http://127.0.0.1:5000```
 - In the application interface you should be able to:
   - Register/Login
