@@ -26,12 +26,12 @@ git clone https://github.com/dfcoronado/cointracker-prototype/
 - AWS account: Set up a free AWS account `https://aws.amazon.com` if you don't have any. Ensure you have the necessary permissions to create and manage AWS resources.
 
 - Set up the appropriate credentials to use AWS. 
-  - *After creating AWS account, sign into AWS Management Console `https://aws.amazon.com/console/`
-  - *Navigate to IAM (Identitiy and Access Management) service
-  - *Create an IAM user with programatic access. Ensure to save the `Access Key ID` and `Secret Access Key` securely.
-  - *DynamoDB permissions: There exists a file `dynamodb_permisions.json` in the **resources** directory. You can simply copy and paste them for your user.
-    - *In IAM console, select your IAM user, and attach this policy under ` "Permissions" -> "Add permissions" -> "Attach policies directly."
-- Install AWS CLi and Configure:
+  - After creating AWS account, sign into AWS Management Console `https://aws.amazon.com/console/`.
+  - Navigate to IAM (Identitiy and Access Management) service.
+  - Create an IAM user with programatic access. Ensure to save the `Access Key ID` and `Secret Access Key` securely.
+  - DynamoDB permissions: There exists a file `dynamodb_permisions.json` in the **resources** directory. You can simply copy and paste them for your user.
+    - In IAM console, select your IAM user, and attach this policy under ` "Permissions" -> "Add permissions" -> "Attach policies directly."`
+- Install AWS CLI and Configure:
 ```bash 
 # For Linux/macOS
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -39,7 +39,7 @@ unzip awscliv2.zip
 sudo ./aws/install
 ```
 - Configure AWS CLI with IAM user credentials
-  - *in terminal `aws configure`
+  - In terminal `aws configure`
     - ```bash
           AWS Access Key ID: YOUR_ACCESS_KEY_ID
           AWS Secret Access Key: YOUR_SECRET_ACCESS_KEY 
@@ -47,7 +47,7 @@ sudo ./aws/install
           Default output format: json
 
       ```
-    - Save your config file.
+  - Save your config file.
 
 - Install Dependencies: `requirement.txt`
 ```bash
