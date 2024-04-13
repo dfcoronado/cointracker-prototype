@@ -1,0 +1,50 @@
+<!--html/registration_success.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Successful</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0183ff;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #000000;
+            color: #0183ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registration Successful!</h1>
+        <p>Welcome, {{ username }}. You have successfully registered.</p>
+        <p>Please proceed to <a href="{{ url_for('login') }}">login</a> with your credentials.</p>
+
+        <!-- Login Button -->
+        <a href="{{ url_for('login') }}"><button>Login</button></a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!-- retrieve.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Retrieve - CoinTracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #040404;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        h1.btc-heading {
+            color: #0183ff; /* Blue color */
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ffffff;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="btc-heading">BTC Addresses and Current Balances</h1>
+    <div style="margin-bottom: 20px;">
+        <h3>Total number of wallets/btc addresses: {{num_of_btc_addresses}}</h3>
+        <h2>Total Bitcoin Owned: {{ total_btc_owned }} BTC </h2>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>BTC Address</th>
+                <th>Current Balance (BTC)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in btc_addresses %}
+            <tr>
+                <td>{{ data['btc_address'] }}</td>
+                <td>{{ data['current_balance'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1 class="btc-heading">Transactions (latest first)</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>BTC Address</th>
+                <th>Current Balance (BTC)</th>
+                <th>Fee (BTC)</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in btc_transactions|sort(attribute='timestamp', reverse=True) %}
+            <tr>
+                <td>{{ transaction['btc_address'] }}</td>
+                <td>{{ transaction['current_balance'] }}</td>
+                <td>{{ transaction['fee'] }}</td>
+                <td>{{ transaction['timestamp'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <a href="/loggedin?username={{ username }}"><button>Go Back</button></a>
+</body>
+</html>
