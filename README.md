@@ -6,14 +6,14 @@ A prototype (web app) of CoinTacker with 3 main core functionalities:
 - Retrieve the current balances and transactions for each bitcoin address
 
 
-## Project Structure:
+## Project Structure
 - database.py: Contains classes to set up and use DynamoDB tables.
 - app.py: Main Flask application for user interaction.
 - blockchain_com_api.py: Module for interacting with the Blockchain.com API.
 - main.py: Utility functions for managing Bitcoin addresses and transactions.
 - test.py: Unit tests for database and API functionalities.
 
-## Assumptions and Architectural Decision:
+## Assumptions and Architectural Decision
 ### Assumptions 
 - The user login data will not save after closing the user interface. Data needs to be input again. 
 - When the user `adds/removes` a a btc address it is asumed that authentication process is done in the backend. I.e. the user is able to verify that the btc address is theirs.
